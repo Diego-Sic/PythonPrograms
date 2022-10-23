@@ -1,7 +1,7 @@
 #Diego Sic
 #This program it's to play hangman with a word
 #predetermined "misisipi"
-
+import random
 def to_continue():
     '''This function it's to create a friendly
         enviroment for the user using enter
@@ -113,7 +113,14 @@ def print_dead_man(attempts_allowed):
 
     
 def main():
-    s_word = "misisipi"
+    list_of_words = ['abruptly', 'absurd', 'abyss', 'affix', 'askew', 'avenue', 
+    'awkward','axiom', 'azure', 'bagpipes', 'bandwagon', 'banjo', 'bayou', 
+    'beekeeper', 'bikini', 'blitz', 'blizzard', 'boggle', 'bookworm', 'boxcar', 
+    'boxful', 'buckaroo', 'buffalo', 'buffoon', 'buxom', 'buzzard', 'buzzing', 
+    'buzzwords', 'caliph', 'cobweb', 'cockiness', 'croquet', 'crypt', 'curacao', 
+    'cycle', 'daiquiri', 'dirndl', 'disavow', 'dizzying', 'duplex']
+    s_word = list_of_words[random.randint(0, len(list_of_words))]
+    print(s_word)
     i_attempts_allowed = 6
     b_show_only_once = True
     
