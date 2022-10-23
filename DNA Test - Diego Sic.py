@@ -1,6 +1,6 @@
 #Diego Sic
 #Project 2 - DNA Identification
-# This program will use a data base to c
+# This program will use a data base to check DNA sequence matches. 
 
 def breaking_data_base(Doc):
     '''This function will break the lines of a document,
@@ -8,13 +8,24 @@ def breaking_data_base(Doc):
     Each line will be saved in a list, and all llines will be
     saved in individual lists.
     Parameter:
-        A document cvs'''
+        A document cvs with names, DNA-Type, and quanity of DNA-Type
+    Return:
+        A list with each line of the data base in a list'''
     List_with_good_elem = []
     for line in Doc:
         List_with_good_elem.append((line.strip()).split(","))
     return List_with_good_elem
     
 def ordering_elem(list_with_good_elem):
+    '''This function is going to re-order the data base
+    creating 3 lists with and save them in another list
+    The list will storage the name of the person, and how
+    many quantities of DNA-type it has
+    Parameter:
+        A list separated by lines
+    Return
+        A list with lists with the format:
+        [DNA-type,Quantity, DNA-type,Quantity, DNA-type,Quantity , Name]'''
     multiply_elem = []
     i_range = len(list_with_good_elem[0])
         
@@ -34,6 +45,15 @@ def ordering_elem(list_with_good_elem):
     return multiply_elem
 
 def check_sequence(lines_2, str_to_check):
+    '''This function will count how many consecutives matches
+    a sequence of DNA has with the DNA-type, and return the max
+    amount of times a DNA type it's repeated
+    parameter:
+        A string with the DNA sequence, and the String in the
+        data base we're checking
+    Return:
+        An integer describing the  max amount of times a DNA 
+        type it's repeated'''
     counter = 0
     list_of_counters = []
     for i in range(len(lines_2)):
@@ -51,8 +71,17 @@ def check_sequence(lines_2, str_to_check):
     return max(list_of_counters)
 
 def check_data_base(list_with_order_elem, lines_2):
+    '''This function will check the number of matches a
+    sequence has with the information in the data base
+    if everything matches returns the name of the person 
+    in the data base
+    parameter:
+        A list with the information of all the candidates in
+        the data base
+    return:
+        A string with the name of the candidate who matches or
+        "no matches" if there's no matches'''  
     name_of_person = "No match"
-    
     for i in range(len(list_with_order_elem)):
         l_person_to_check = list_with_order_elem[i]
         num_of_matches = 0
